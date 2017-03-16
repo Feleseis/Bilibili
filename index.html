@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="shortcut icon" href="http://static.hdslb.com/images/favicon.ico">
     <title>Bilibili</title>
@@ -58,7 +59,40 @@
             </div>
         </div>
         <div class="main">
-            <footer class="info">
+            <!-- <img src="./img/noface.gif" alt="" class="face-pic"> -->
+            <div id="myinfo">
+                <div class="section basic-info">
+                    <!-- <div class="name"><label>name:</label><span>Felese</span></div> -->
+                    <div class="uid"><label>UID : </label><span>3047531</span></div>
+                    <div class="follow"><label>关注 : </label><span>291</span></div>
+                    <div class="fans"><label>粉丝 : </label><span>0</span></div>
+                    <div class="jointime"><label>注册时间 : </label><span>2014-1-6</span></div>
+                    <div class="city"><label>城市 : </label><span>上海市</span></div>
+                </div>
+                <div class="section canvas-info">
+                    <div class="column">
+                        <div class="basic-exhibition" id="basic-info-1"></div>
+                        <div class="basic-exhibition" id="basic-info-2"></div>
+                    </div>
+                    <div class="column">
+                        <div class="basic-exhibition" id="basic-info-3"></div>
+                        <div class="basic-exhibition" id="basic-info-4"></div>
+                    </div>
+
+
+                </div>
+                <div class="section level-info">
+                    <div class="description">
+                        <label>LV4</label>
+                        <span>10070 / 10800</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="foot-info">
                 <div class="browser">
                     <i class="fa fa-chrome">Chrome</i>
                     <i class="fa fa-firefox">Firefox</i>
@@ -72,7 +106,10 @@
         </div>
     </div>
     <!-- <script src="./js/ajax.js" charset="utf-8"></script> -->
+    <script src="./js/echarts/echarts.js" charset="utf-8"></script>
+    <script src="./js/echarts/macarons.js" charset="utf-8"></script>
     <script src="./js/data/myInfo.js" charset="utf-8"></script>
+    <script src="./js/data/myAttention.js" charset="utf-8"></script>
     <script src="./js/app.js" charset="utf-8"></script>
 </body>
 </html>
