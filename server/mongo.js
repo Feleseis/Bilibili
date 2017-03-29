@@ -30,6 +30,9 @@ function find(collectionName, type, queryArr, callback) {
     });
 }
 
+// find('users', 'aggregate', [{$group : {_id : '$sex', total : {$sum : 1}}}], (res) => {
+//     console.log(res);
+// });
 // find('videos', 'aggregate', [{$group : {_id : 'aid', total : {$sum : 1}}}], (res) => {
 //     console.log(res);
 // });

@@ -3,7 +3,7 @@
 /*setting start*/
 @blue-1: #37c8f7;
 @blue-2: #228DFF;
-
+@min-width: 980px;
 @-webkit-keyframes logo {
   from {
     text-shadow:
@@ -44,15 +44,15 @@
 
 /*header start*/
 .logo-box {
-    width: 100vw;
+    min-width: @min-width;
     height: 100vh;
-    /*background: #272822;*/
-    background: url("../img/bg2.png") fixed;
+    background: #272822;
+    /*background: url("../img/bg2.png");*/
     .flex-center;
     .logo {
         display: inline-block;
         h1 {
-            font-size: 8em;
+            font-size: 10em;
             color: @blue-1;
             .no-select;
             text-shadow:
@@ -65,7 +65,7 @@
             }
         }
     }
-    .author {
+    .logo-description {
         .flex-center;
         label {
             color: #fff;
@@ -80,17 +80,60 @@
 
 /*container start*/
 .container {
-
-    height: 100vh;
-    background: #fff;
-    .divide {
-        width: 100vw;
-        height: 15vh;
-        .flex-center;
-        background: url("../img/bg.png") fixed;
-        h2 {
-            font-size: 3em;
-            .no-select;
+    min-width: @min-width;
+    /*height: 100vh;*/
+    background: #eee;
+    .flex-center;
+    .container-box {
+        width: 96%;
+        height: 100vh;
+        /*height: 96%;*/
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 2px 2px 3px #ccc;
+        margin: 20px 0 0 0;
+        /*position: absolute;*/
+        .container-title {
+            display: inline-block;
+            position: relative;
+            margin: 0 0 3vh 0;
+            .flex-center;
+            background: linear-gradient(@blue-1, lighten(@blue-1, 5%));
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0px 1px 2px #ccc;
+            color: #fff;
+            h2 {
+                display: inline-block;
+                position: relative;
+                font-size: 3em;
+                .no-select;
+                margin: 0 20px;
+            }
+            .ico {
+                font-size: 2.5em;
+                margin: 0 20px;
+            }
+        }
+        .container-content {
+            width: 96%;
+            height: 80%;
+            margin: 25px auto 25px auto;
+            /*display: inline-block;*/
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1.5em;
+            h3 {
+                color: @blue-1;
+            }
+            p {
+                line-height: 2em;
+            }
+            .canvas {
+                margin: 40px auto 0 auto;
+                /*background: @blue-1;*/
+            }
         }
     }
 }

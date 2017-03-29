@@ -10,10 +10,19 @@ app.set('port', process.env.PORT || 4000);
 
 // 设置路由
 app.get('/', (req, res) => {
+    console.log(req.query);
     res.type('text/html');
     res.sendfile('./public/index.html');
 });
 
+app.get('/ajax', (req, res) => {
+    res.type('text/json');
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    if (req.query.type === 'index') {
+        res.sendfile(`${__dirname}/server/static/index.json`);
+    }
+    // console.log(req.query);
+});
 // app.get('/about', (req, res) => {
 //     res.type('text/html');
 //     res.sendfile('./public/info.html');

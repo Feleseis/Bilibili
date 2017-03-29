@@ -4,49 +4,186 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="http://static.hdslb.com/images/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bilibili</title>
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/index.css">
-    <title>Bilibili</title>
+    <script src="./js/lib/echarts/echarts.js" charset="utf-8"></script>
+    <script src="./js/lib/echarts/china.js"></script>
+    <script src="./js/lib/echarts/macarons.js" charset="utf-8"></script>
 </head>
 <body>
     <header class="logo-box">
         <div class="logo">
-            <h1>BILIBILI TOP 1000+</h1>
-            <div class="author">
+            <h1>TOP 1000</h1>
+            <div class="logo-description">
                 <label>
                     <hr>
                     <i class="fa fa-bar-chart"></i>
-                    <span>Data Visualization</span>
+                    <span>Bilibili Data Visualization</span>
                     <hr>
                 </label>
             </div>
         </div>
     </header>
     <div class="container">
-        <div class="divide">
-            <h2>哔哩哔哩</h2>
+        <div class="container-box">
+            <div class="container-title">
+                <img src="http://static.hdslb.com/images/favicon.ico" alt="bilibili" class="ico">
+                <h2>哔哩哔哩</h2>
+            </div>
+            <div class="container-content">
+                <h3>B站UP主数据报告</h3>
+                <p>
+                    太平洋吹来暖湿的季风，又到了人们<del>交配</del>最忙碌的季节。<br>
+                    由B站UP主们产出的精神食粮可以让工作、学习后疲惫的身心得到放松。<br>
+                    为了给劳累人们准备一顿大餐。<br>
+                    作者准备深入B站，寻找上等的UP主。<br>
+                    仔细搜索几天后终于物色到了1000只上等UP主。<br>
+                    在B站用户眼中，知名UP主能带来快乐和好运，值得关注一波。
+                </p>
+            </div>
         </div>
-
     </div>
     <div class="container">
-        <div class="divide">
-
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-venus-mars ico"></i>
+                <h2>性别分布</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-sex"></canvas>
+                </div>
+            </div>
         </div>
-
     </div>
     <div class="container">
-        <div class="divide">
-
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-calendar-plus-o ico"></i>
+                <h2>注册时间</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-regtime"></canvas>
+                </div>
+            </div>
         </div>
-
     </div>
-    <div class="container">
-        <div class="divide">
-
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-calendar-plus-o ico"></i>
+                <h2>地区分布</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-place"></canvas>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-user-plus ico"></i>
+                <h2>Fans</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-fans"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-play-circle-o ico"></i>
+                <h2>总播放1千万~1亿</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-playNum"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-play-circle-o ico"></i>
+                <h2>总播放1亿+</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-playNum2"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-caret-square-o-right ico"></i>
+                <h2>视频投稿</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-submit"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-caret-square-o-right ico"></i>
+                <h2>视频分类</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-tlist"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-caret-square-o-right ico"></i>
+                <h2>视频投稿时间</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-created"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" >
+        <div class="container-box">
+            <div class="container-title">
+                <i class="fa fa-caret-square-o-right ico"></i>
+                <h2>视频属性</h2>
+            </div>
+            <div class="container-content">
+                <div class="canvas">
+                    <canvas id="canvas-copyright"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <footer class="footer">
 
     </footer>
+    <script src="./js/lib/d3.js" charset="utf-8"></script>
+    <script src="./js/charts.js" charset="utf-8"></script>
+
 </body>
 </html>
