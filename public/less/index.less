@@ -29,7 +29,6 @@
   }
 }
 
-
 .flex-center {
     display: flex;
     justify-content: center;
@@ -79,10 +78,14 @@
 /*header end*/
 
 /*container start*/
+
+body {
+    background: #eee;
+}
+
 .container {
     min-width: @min-width;
     /*height: 100vh;*/
-    background: #eee;
     .flex-center;
     .container-box {
         width: 96%;
@@ -96,7 +99,7 @@
         .container-title {
             display: inline-block;
             position: relative;
-            margin: 0 0 3vh 0;
+            margin: 0 0 10px 0;
             .flex-center;
             background: linear-gradient(@blue-1, lighten(@blue-1, 5%));
             border-radius: 5px 5px 0 0;
@@ -116,8 +119,8 @@
         }
         .container-content {
             width: 96%;
-            height: 80%;
-            margin: 25px auto 25px auto;
+            height: 90%;
+            margin: 0 auto;
             /*display: inline-block;*/
             text-align: center;
             display: flex;
@@ -131,7 +134,7 @@
                 line-height: 2em;
             }
             .canvas {
-                margin: 40px auto 0 auto;
+                margin: 0 auto 10px auto;
                 /*background: @blue-1;*/
             }
         }
@@ -140,5 +143,42 @@
 /*container end*/
 
 /*footer start*/
-
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .more {
+        font-size: 3.5em;
+        margin: 0 0 50px 0;
+        transition: all 0.5s;
+        display: block;
+        span {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: @blue-1;
+            color: #fff;
+            float: left;
+            transition: all 0.5s;
+        }
+        &:hover span:nth-child(odd) {
+            transform: skewY(-15deg);
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+        }
+        &:hover span:nth-child(even) {
+            transform: skewY(15deg);
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1), 0 0px 20px rgba(0, 0, 0, 0.3) inset;
+        }
+    }
+    .contact {
+        span {
+            margin: 0 0 0 10px;
+            &:hover {
+                font-weight: 600;
+            }
+        }
+    }
+}
 /*footer end*/

@@ -9,20 +9,15 @@ class Charts {
     }
 
     resize() {
-        let currentWidth = document.querySelector('.container-box').clientWidth - 50;
-        if (currentWidth > 800) {
-            if (currentWidth < 1500) {
-                this._echart.resize({width : currentWidth, height : currentWidth / 2});
-            } else {
-                this._echart.resize({width : 1500, height : 750});
-            }
-        }
+        let currentWidth = document.querySelector('.container-content').clientWidth - 20;
+        let currentHeight = document.querySelector('.container-content').clientHeight - 20;
+        this._echart.resize({width : currentWidth, height : currentHeight});
     }
 }
 
 window.onload = () => {
     const charts = [];
-    (function ajax() {
+    (() => {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'http://localhost:4000/ajax?type=index', true);
         xhr.send(null);
@@ -37,10 +32,6 @@ window.onload = () => {
                     seriesSex.push({name : key, value : data['sex'][key]});
                 }
                 charts.push(new Charts(document.querySelector('#canvas-sex'), {
-                    tooltip : {
-                        trigger : 'item',
-                        formatter : '{a} <br/>{b} : {c} ({d}%)'
-                    },
                     legend : {
                         orient : 'vertical',
                         left : 'right',
@@ -55,9 +46,9 @@ window.onload = () => {
                         label : {
                             normal : {
                                 show : true,
-                                formatter : '{b} : {c} ({d}%)',
+                                formatter : '{b}：{c}\n({d}%)',
                                 textStyle : {
-                                    fontSize : 25
+                                    fontSize : 20
                                 }
                             }
                         },
@@ -79,7 +70,7 @@ window.onload = () => {
                     seriesRegtime.push({name : key, value : data['regtime'][key]});
                 }
                 charts.push(new Charts(document.querySelector('#canvas-regtime'), {
-                    color : ['#37c8f7'],
+                    color : ['#fcba2c'],
                     grid : {
                         left : '3%',
                         right : '4%',
@@ -403,7 +394,7 @@ window.onload = () => {
                     }
                 }
                 charts.push(new Charts(document.querySelector('#canvas-submit'), {
-                    color : ['#fcba2c'],
+                    color : ['#37c8f7'],
                     grid : {
                         left : '3%',
                         right : '4%',
@@ -597,10 +588,6 @@ window.onload = () => {
             }
         };
     })();
-
-    function chartsPush(arr, data) {
-
-    }
 
     window.addEventListener('resize', () => {
         charts.map((item) => {
