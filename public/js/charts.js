@@ -4,10 +4,16 @@ class Charts {
         this._opt = opt;
     }
 
+    /**
+     * 显示canvas
+     */
     show() {
         this._echart.setOption(this._opt);
     }
 
+    /**
+     * 重置canvas窗口大小
+     */
     resize() {
         let currentWidth = document.querySelector('.container-content').clientWidth - 20;
         let currentHeight = document.querySelector('.container-content').clientHeight - 20;
@@ -589,6 +595,9 @@ window.onload = () => {
         };
     })();
 
+    /**
+     * 窗口发生变化 重置canvas尺寸
+     */
     window.addEventListener('resize', () => {
         charts.map((item) => {
             item.resize();

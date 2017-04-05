@@ -17,6 +17,10 @@ app.get('/ranking', (req, res) => {
     res.type('text/html');
     res.sendfile('./public/ranking.html');
 });
+app.get('/info', (req, res) => {
+    res.type('text/html');
+    res.sendfile('./public/info.html');
+});
 
 app.get('/ajax', (req, res) => {
     res.type('text/json');

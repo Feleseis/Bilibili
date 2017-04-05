@@ -2,6 +2,7 @@ const mongodb = require('mongodb');
 const MongoClient = require('mongodb').MongoClient;
 const DB_CONN_STR = 'mongodb://localhost:27017/bilibili';
 
+//数据库查找
 function locate(db, collection, queryArr, cb) {
     collection.find(...queryArr).toArray((err, res) => {
         cb(res);
@@ -9,6 +10,7 @@ function locate(db, collection, queryArr, cb) {
     });
 }
 
+//数据库聚合
 function count(db, collection, queryArr, cb) {
     collection.aggregate(queryArr).toArray((err, res) => {
         cb(res);
@@ -16,6 +18,7 @@ function count(db, collection, queryArr, cb) {
     });
 }
 
+//数据库操作入口
 function find(collectionName, type, queryArr, callback) {
     MongoClient.connect(DB_CONN_STR, (err, db) => {
         if (err) {

@@ -1,3 +1,11 @@
+/**
+ * 生成视频
+ * @param  {json} data      视频相关数据
+ * @param  {string} key       json key
+ * @param  {string} valueName key描述
+ * @param  {string} domStr    dom选择字符串
+ * @return {null}           null
+ */
 function showVideo(data, key, valueName, domStr) {
     data.slice(0, 20).map((item) => {
         let html =
@@ -29,6 +37,7 @@ window.onload = () => {
                 const data = JSON.parse(xhr.responseText);
                 const worldUser = [];
                 const worldVidoe = [];
+                //转换为jqcloud wold要求格式
                 data['top']['fans'].map((item) => {
                     worldUser.push({
                         text : item['name'],
@@ -37,8 +46,9 @@ window.onload = () => {
                 });
                 $('#words-cloud-users').jQCloud(worldUser);
 
+                //top fans
                 const maxValue = data['max'];
-                data['top']['fans'].slice(0, 2).map((item) => {
+                data['top']['fans'].slice(0, 5).map((item) => {
                     const ratioFans = Math.floor(item['fans'] / maxValue['fans'] * 100 * 0.8);
                     const ratioPlayNum = Math.floor(item['playNum'] / maxValue['playNum'] * 100 * 0.8);
                     const ratioExp = Math.floor(item['current_exp'] / maxValue['current_exp'] * 100 * 0.8);
@@ -78,6 +88,7 @@ window.onload = () => {
                     document.querySelector('#top-fans').innerHTML += html;
                 });
 
+                //video
                 showVideo(data['top']['play'], 'play', '播放:', '#top-play');
                 showVideo(data['top']['favorites'], 'favorites', '收藏:', '#top-favorites');
                 showVideo(data['top']['coin'], 'coin', '硬币:', '#top-coin');
