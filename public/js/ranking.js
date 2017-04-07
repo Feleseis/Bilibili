@@ -48,7 +48,7 @@ window.onload = () => {
 
                 //top fans
                 const maxValue = data['max'];
-                data['top']['fans'].slice(0, 5).map((item) => {
+                data['top']['fans'].slice(0, 25).map((item) => {
                     const ratioFans = Math.floor(item['fans'] / maxValue['fans'] * 100 * 0.8);
                     const ratioPlayNum = Math.floor(item['playNum'] / maxValue['playNum'] * 100 * 0.8);
                     const ratioExp = Math.floor(item['current_exp'] / maxValue['current_exp'] * 100 * 0.8);

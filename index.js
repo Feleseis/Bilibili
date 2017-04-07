@@ -32,10 +32,52 @@ app.get('/ajax', (req, res) => {
         case 'ranking':
             res.sendfile(`${__dirname}/server/static/ranking.json`);
             break;
+        case 'uplist':
+            res.sendfile(`${__dirname}/server/static/uplist.json`);
+            break;
+        case 'user':
+            if (req.query.mid) {
+                const obj = {};
+                db.find('users', 'find', [{'mid' : req.query.mid}, {
+                    '_id' : 0,
+                    'mid' : 1,
+                    'name' : 1,
+                    'regtime' : 1,
+                    'place' : 1,
+                    'fans' : 1,
+                    'playNum' : 1,
+                    'current_exp' : 1,
+                    'submit' : 1,
+                    'tlist' : 1
+                }], (result) => {
+                    obj['user'] = result[0];
+                    // console.log(typeof +obj['user']['mid']);
+
+                    db.find('videos', 'find', [{'mid' : +obj['user']['mid']}, {
+                        '_id' : 0,
+                        'title' : 1,
+                        'mid' : 1,
+                        'aid' : 1,
+                        // 'comment' : 1,
+                        'favorites' : 1,
+                        'play' : 1,
+                        'coin' : 1,
+                        'share' : 1,
+                        'tlist' : 1,
+                        'danmaku' : 1
+                    }], (result2) => {
+                        obj['video'] = result2;
+                        // console.log(obj);
+                        res.send(obj);
+                    });
+                });
+            }
+            break;
         default:
             console.log('no res');
             break;
     }
+
 });
 // app.get('/about', (req, res) => {
 //     res.type('text/html');
