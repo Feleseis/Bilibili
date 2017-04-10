@@ -51,14 +51,11 @@ app.get('/ajax', (req, res) => {
                     'tlist' : 1
                 }], (result) => {
                     obj['user'] = result[0];
-                    // console.log(typeof +obj['user']['mid']);
-
                     db.find('videos', 'find', [{'mid' : +obj['user']['mid']}, {
                         '_id' : 0,
                         'title' : 1,
                         'mid' : 1,
                         'aid' : 1,
-                        // 'comment' : 1,
                         'favorites' : 1,
                         'play' : 1,
                         'coin' : 1,
@@ -67,7 +64,6 @@ app.get('/ajax', (req, res) => {
                         'danmaku' : 1
                     }], (result2) => {
                         obj['video'] = result2;
-                        // console.log(obj);
                         res.send(obj);
                     });
                 });
@@ -79,22 +75,6 @@ app.get('/ajax', (req, res) => {
     }
 
 });
-// app.get('/about', (req, res) => {
-//     res.type('text/html');
-//     res.sendfile('./public/info.html');
-// });
-
-
-
-// app.get('/info', (req, res) => {
-//     res.type('text/json');
-//
-//     // db.find('users', 'find', [{}, {'_id' : 0, 'fans' : 1}], (data) => {
-//     //     console.log(data);
-//     //     res.send(data);
-//     // });
-// });
-
 
 
 app.listen(app.get('port'), () => {

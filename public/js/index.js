@@ -22,7 +22,9 @@ class Charts {
 }
 
 window.onload = () => {
+    //保存chart对象
     const charts = [];
+    //页面加载完毕后获取数据
     (() => {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'http://localhost:4000/ajax?type=index', true);
@@ -120,6 +122,7 @@ window.onload = () => {
                 }));
 
                 //place
+                //地图坐标
                 const geoCoordMap = {
                     '无可奉告': [129.5,22.0],
                     '贵州省': [106.71,26.57],
@@ -587,6 +590,8 @@ window.onload = () => {
                     ]
                 }));
 
+
+                //显示并初始化canvas大小
                 charts.map((item) => {
                     item.show();
                     item.resize();

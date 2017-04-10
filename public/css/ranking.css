@@ -73,8 +73,6 @@ body {
 }
 .content-item {
   margin: 15px 0 0 0;
-  /*border-top: 1px dashed rgba(25, 203, 250, 0.3);*/
-  /*border: 1px solid rgba(255, 0, 0, 0.5);*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,11 +89,9 @@ body {
 .content-item img {
   width: 100px;
   border-radius: 100px;
-  /*margin: 0 0 25px 0;*/
 }
 .content-item .exp {
   width: 85%;
-  /*background: #272822;*/
 }
 .content-item label,
 .content-item .fa {
@@ -120,13 +116,10 @@ body {
     0 0 1px #37c8f7,
     0 0 1px #37c8f7;
   background-color: rgba(25, 203, 250, 0.3);
-  /*margin: 20px 0;*/
 }
 .vranking {
   display: flex;
-  /*flex-direction: column;*/
   flex-wrap: wrap;
-  /*align-items: center;*/
   justify-content: flex-start;
 }
 .vranking .content-item-v {

@@ -1,5 +1,5 @@
 /**
- * 生成视频
+ * 生成视频列表
  * @param  {json} data      视频相关数据
  * @param  {string} key       json key
  * @param  {string} valueName key描述
@@ -28,6 +28,7 @@ function showVideo(data, key, valueName, domStr) {
 }
 
 window.onload = () => {
+    //资源加载完毕后发起get请求获取数据
     (() => {
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'http://localhost:4000/ajax?type=ranking', true);
@@ -37,6 +38,7 @@ window.onload = () => {
                 const data = JSON.parse(xhr.responseText);
                 const worldUser = [];
                 const worldVidoe = [];
+                //词云
                 //转换为jqcloud wold要求格式
                 data['top']['fans'].map((item) => {
                     worldUser.push({
@@ -49,11 +51,13 @@ window.onload = () => {
                 //top fans
                 const maxValue = data['max'];
                 data['top']['fans'].slice(0, 25).map((item) => {
+                    //根据最大值算出当前数值百分比
                     const ratioFans = Math.floor(item['fans'] / maxValue['fans'] * 100 * 0.8);
                     const ratioPlayNum = Math.floor(item['playNum'] / maxValue['playNum'] * 100 * 0.8);
                     const ratioExp = Math.floor(item['current_exp'] / maxValue['current_exp'] * 100 * 0.8);
-                    const ratioSubmit = Math.floor(item['submit'] / maxValue['submit'] * 100 * 0.8);
+                    const ratioSubmit = Math.floor(item['submit'] / maxValue['submit'] * 100 * 0.8 + 20);
 
+                    
                     let html =
                     `
                     <div class="content-item">
@@ -95,7 +99,6 @@ window.onload = () => {
                 showVideo(data['top']['danmaku'], 'danmaku', '弹幕:', '#top-danmaku');
                 showVideo(data['top']['comment'], 'comment', '留言:', '#top-comment');
                 showVideo(data['top']['share'], 'share', '分享:', '#top-share');
-
             }
         };
     })();
